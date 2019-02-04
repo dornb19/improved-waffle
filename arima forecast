@@ -1,0 +1,3 @@
+read.csv("sample building monthly electricity bills".csv, headers = F)
+column_names <- c("date", "building name", "month-year", "units", "energy resource", "resource cost")
+
