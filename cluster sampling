@@ -1,0 +1,9 @@
+setwd("C:/Users/glbrendond/Documents/documents archive/client/upmc/staff experience")
+## rm(chiller_uva, var_names) - existing objects
+staff <- read.csv("staff data for sampling.csv")
+names(staff)
+head(staff)
+## install.packages("sampling")
+## library(sampling)
+cl=cluster(staff,clustername=c("Department.Name"),size=10,method="srswor")
+write.csv(cl, file = "random cluster sampling output.csv")
