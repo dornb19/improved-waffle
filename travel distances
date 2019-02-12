@@ -1,0 +1,35 @@
+library(zipcode)
+##install.packages("tidyr")
+##install.packages("tidyverse")
+##install.packages("readxl")
+data("zipcode")
+ump <- ("G:/MASTERS/Data Science/Raw Data/2019-01-03_xxxx-xx-xx_UMP")
+setwd(ump)
+ump_xl <- list.files(, pattern="*.xlsx")
+## convert to csv and make sure LON is first
+names <- c("lat", "lon")
+colnames(ump_zips) <- names
+lat90 <- ump_zips3[ump_zips3$latitude > -90,]
+lat90 <- ump_zips3$latitude > -90
+ump_zips4 <- ump_zips3[lat90,]
+colnames(ump_zips4) <- names
+ump_zips5 <- ump_zips4 %>%
++     select(lon, everything())
+head(ump_zips5)
+        lon      lat
+1 -65.97791 18.25863
+2 -66.32305 18.30487
+3 -64.96371 18.32229
+4 -64.96371 18.32229
+5 -64.74074 18.32816
+6 -66.05928 18.44595
+ump_office2 <- ump_office %>%
++     select(lon, everything())
+head(ump_office2)
+       lon      lat
+1 -93.2691 44.98458
+dist <- distHaversine(ump_office2, ump_zips5)
+ump_zips2$disttooffice <- disttooffice
+##Error: object 'disttooffice' not found
+ump_zips2$disttooffice <- dist
+write.csv(ump_zips2, "ump office dist.csv")
